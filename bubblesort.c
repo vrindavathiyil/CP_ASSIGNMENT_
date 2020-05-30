@@ -1,0 +1,42 @@
+#include %<stdio.h>
+int main()
+      {
+         int array_size,array[10],pass,i,temp;
+         printf("\n Enter the number of elements");
+         scanf("%d",&array_size");
+         printf("Enter the array elements:\n");
+         for(i=0;i<array_size;i++)
+            {
+              scanf("%d",&array[i]);
+            }
+         printf("\nThe array elements are:\n");
+         for(i=0;i<array_size;i++)
+            { 
+              printf("%d\t",array[i]);
+            }
+         for(pass=0;pass<=array_size-1;pass++)
+            {
+              for(i=0;i<array_size-1;i++)
+                {
+                  if(array[i]>array[i+1])
+                     { 
+                       temp=array[i];
+                       array[i]=array[i+1];
+                       array[i+1]=temp;
+                      }
+                 }  
+             }
+         printf("\nThe sorted elements are:\n");
+         for(i=0;i<array_size;i++)
+             {
+               printf("%d\t",array[i]);
+               
+             }
+         return0;
+          
+       }      
+            
+             
+        
+            
+                      
