@@ -2,14 +2,14 @@
 int main()
       {
          int array_size,array[10],pass,i,temp;
-         printf("\n Enter the number of elements");
-         scanf("%d",&array_size");
-         printf("\n Enter the array elements");
+         printf("\nEnter the number of elements");
+         scanf("%d",&array_size);
+         printf("\nEnter the array elements");
          for(i=0;i<array_size;i++)
             {
               scanf("%d",&array[i]);
             }
-         printf("\n The array elements are:\n");
+         printf("\nThe array elements are");
          for(i=0;i<array_size;i++)
             { 
               printf("%d\t",array[i]);
@@ -23,10 +23,10 @@ int main()
                        temp=array[i];
                        array[i]=array[i+1];
                        array[i+1]=temp;
-                      }
-                 }  
-             }
-         printf("\n The sorted elements are:\n");
+                     }
+                }  
+            }
+         printf("\nThe sorted elements are:\n");
          for(i=0;i<array_size;i++)
              {
                printf("%d\t",array[i]);
@@ -34,9 +34,4 @@ int main()
              }
          return0;
           
-       }      
-            
-             
-        
-            
-                      
+      }      
