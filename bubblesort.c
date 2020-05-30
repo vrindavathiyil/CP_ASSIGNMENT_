@@ -1,4 +1,4 @@
-#include %<stdio.h>
+#include<stdio.h>
 int main()
       {
          int array_size,array[10],pass,i,temp;
