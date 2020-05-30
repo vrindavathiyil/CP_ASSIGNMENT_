@@ -4,12 +4,12 @@ int main()
          int array_size,array[10],pass,i,temp;
          printf("\n Enter the number of elements");
          scanf("%d",&array_size");
-         printf("Enter the array elements:\n");
+         printf ("Enter the array elements:\n");
          for(i=0;i<array_size;i++)
             {
               scanf("%d",&array[i]);
             }
-         printf("\nThe array elements are:\n");
+         printf ("\nThe array elements are:\n");
          for(i=0;i<array_size;i++)
             { 
               printf("%d\t",array[i]);
