@@ -1,6 +1,7 @@
 /*Using structure, read and print data of n employees (Name, Employee Id and Salary)*/
 
 
+
 #include <stdio.h>
 struct Employee
 {
