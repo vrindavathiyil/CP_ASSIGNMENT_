@@ -4,130 +4,135 @@ of two matrices, (i) find the transpose of a matrix and (v) display a matrix*/
 
 
 
+#include<stdio.h>
+#include<stdlib.h>
+int getmat(int mat[][100],int row,int col)
+{
+	int i,j;
+    for(i=0;i<row;i++)
+    {
+     for(j=0;j<col;j++)
+       {
+        printf("The element at position (%d,%d): ",i+1,j+1);
+        scanf("%d",&mat[i][j]);
+       }
+    }
+    return 0;
+}
 
+int disp_mat(int mat[][100],int row,int col)
+{
+   int i,j;
+   for(i=0;i<row;i++)
+    {
+     for(j=0;j<col;j++)
+      {
+       printf("%d\t",mat[i][j]);
+      }
+     printf("\n");
+    }
+    return 0;
+}
+
+int add_mat(int a[][100],int b[][100],int row,int col)
+{
+   int sum[100][100],i,j;
+   for(i=0;i<row;i++)
+   {
+     for(j=0;j<col;j++)
+       {
+         sum[i][j]=a[i][j]+b[i][j];
+       }
+    }
+    printf("Matrix 1:\n");
+    disp_mat(a,row,col);
+    printf("Matrix 2:\n");
+    disp_mat(b,row,col);
+    printf("The added matrix is\n");
+    disp_mat(sum,row,col);
+    return 0;
+}
+
+int mul_mat(int a[][100],int b[][100],int r1,int c1,int r2,int c2)
+{
+	int pro[100][100],i,j,k,sum;
+	for(i=0;i<r1;i++)
+    {
+     for(j=0;j<c2;j++) 
+      {
+       sum=0;
+       for(k=0;k<c1;k++)
+        {
+         sum+=a[i][k]*b[k][j];
+         pro[i][j]=sum;
+        }
+      }
+    }
+    printf("Matrix 1:\n");
+    disp_mat(a,r1,c1);
+    printf("Matrix 2:\n");
+    disp_mat(b,r2,c2);
+    printf("The product matrix is\n");
+    disp_mat(pro,r1,c2);
+    return 0;
+}
+
+void mat_trans(int a[][100],int row,int col)
+{
+	int trans[100][100],i,j;
+	for(i=0;i<row;i++)
+    {
+     for(j=0;j<col;j++)
+      {
+       trans[j][i]=a[i][j];
+      }
+    }
+    printf("The matrix is:\n");
+    disp_mat(a,row,col);
+    printf("The transpose matrix is\n");
+    disp_mat(trans,col,row);
+}
+int main()
+{
+ int mat1[100][100],mat2[100][100];
+ int r1,c1,r2,c2;
+ int ch;
+ printf("Enter rows and cols of first matrix\n");
+ scanf("%d%d",&r1,&c1);
+ printf("Enter rows and cols of second matrix\n");
+ scanf("%d%d",&r2,&c2);
+ printf("Enter the elements first matrix\n");
+ getmat(mat1,r1,c1);
+ printf("\nEnter the elements second matrix\n");
+ getmat(mat2,r2,c2);
+ while(1)
+  {
+   printf("Select operation from menu\n");
+   printf("\t\tMENU\nl.Matrix addition\n2.Matrix multiplication\n3.Transpose of matrix\n4.Exit\n");
+   scanf("%d", &ch);
+   switch(ch)
+    {
+     case 1:
+         if(r1==r2&&c1==c2)
+		   add_mat(mat1,mat2,r1,r1);
+		 else
+		   printf("!!incompatable...can't add!!\n");  
+		   break;
+     case 2:
+        if(c1==r2)
+		   mul_mat(mat1,mat2,r1,c1,r2,c2);
+		 else
+		   printf("!!incompatable...can't multiply!!\n");  
+		   break;
+     case 3:
+         mat_trans(mat1,r1,c1);
+         mat_trans(mat2,r2,c2);
+         break;
+     case 4:
+         exit(0);
+     default:
+      printf("Invalid choice!!!\n");
+    }
+  } 
+}
   
-#include <stdio.h>
-#include <stdlib.h>
-
-
-void readmatrix(int a[][100], int m, int n)
-	{
- 		int i, j;
- 		printf("\n Enter the elements row by row: ");
- 		for(i=0;i<m;i++)
-   			for(j=0;j<n;j++)
-    				scanf("%d", &a[i][j]);
-	}
-
-
-void displaymatrix(int a[][100], int m, int n)
-	{
- 		int i, j;
- 		for(i=0;i<m;i++)
- 			{
-  				for(j=0;j<n;j++)
-    					printf("%5d",a[i][j]);
- 				 printf("\n");
-  			}
-	}
-
-
-void addmatrix(int a[][100], int b[][100], int m, int n)
-	{
- 		int i, j, c[100][100];
-		 for(i=0;i<m;i++)
-   			for(j=0;j<n;j++)
-    				c[i][j] = a[i][j] + b[i][j];
- 		printf("Sum of matrix...\n");
- 		displaymatrix(c,m,n);
-	}
-
-
-void transpose(int a[][100], int m, int n)
-	{
- 		int i, j, c[100][100];
- 		for(i=0;i<m;i++)
-   			for(j=0;j<n;j++)
-    				c[j][i]=a[i][j];
-
- 		displaymatrix(c,n,m);
-	}
-
-
-void multmatrix(int a[][100], int b[][100], int m1, int n1, int n2)
-	{
- 		int c[100][100], i, j, k;
-		// Multiply the two
-    		for (i = 0; i < m1; i++) 
-        		{	
-				for (j = 0; j < n2; j++) 
-           				{
-					 	c[i][j] = 0;
-            					for (k = 0; k < n1; k++)
-                				c[i][j] += a[i][k] * b[k][j];
-       				 	}
-    			}
-
-	 	printf("Product of matrix...\n");
- 		displaymatrix(c,m1,n2);
-	}
-
-
-
-void main()
-	{ 
-		int a[100][100], b[100][100], m1, n1, m2, n2, op;
-  
-  		printf("\n Enter the size of the matrix A (row&column): ");
-  		scanf("%d%d", &m1, &n1);
-  
-		printf("\n Enter Matrix A: ");
-  		readmatrix(a, m1, n1);
-  
-		printf("\n Enter the size of the matrix B (row&column): ");
-  		scanf("%d%d", &m2, &n2);
-  		
-		printf("\n Enter Matrix B: ");
-  		readmatrix(b, m2, n2);
-  
-  		printf("\n Matrix A...\n");  
- 		displaymatrix(a, m1, n1);
-  
-		printf("\n Matrix B...\n");  
-  		displaymatrix(b, m2, n2);
-  
-		
-		while(1)
-  			{
-   				printf("\n**MENU**\n");
-   				printf("\n 1. Add \n 2. Multiply \n 3. Transpose \n 4. Exit \n");
-   				printf("\n Enter choice: ");
-   				scanf("%d",&op);
-   
-				switch(op)
-   					{
-    						case 1: if(m1==m2 && n1==n2)
-                   						addmatrix( a, b, m1, n1);
-                					else
-                   						printf("\n Incompatable matrix...cannot add!");
-                 						break;
-    
-						case 2: if(n1==m2)
-                   						multmatrix( a, b, m1, n1, n2);
-               						else
-                   						printf("\n Incompatable matrix...cannot mutliply!");
-                						break;
-    
-						case 3: printf("\n Transpose of A...\n");
-                					transpose( a, m1, n1);
-               						 
-							printf("\n Transpose of B...\n");
-                					transpose( b, m2, n2);
-                					
-							break;
-    
-						case 4: exit(0);
-	
-						default: printf("\n Invalid Choice! \n");
-   					} 
-   			}
