@@ -6,8 +6,8 @@ void main()
        printf("Enter the first string ending with $");
        scanf("%s",S1);
        printf("Enter the second string ending with $");
-       scanf("%s,S2);
-       while(S1!='\0')
+       scanf("%s",S2);
+       while(S1[i]!='\0')
            {
               S3[j]=S1[i];
               i++;
