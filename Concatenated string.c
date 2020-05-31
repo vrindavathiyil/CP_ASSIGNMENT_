@@ -7,19 +7,19 @@ void main()
        scanf("%s",S1);
        printf("Enter the second string ending with $");
        scanf("%s,S2);
-       while(S1!='\o')
+       while(S1!='\0')
            {
               S3[j]=S1[i];
               i++;
               j++;
            }
        i=0;
-       while(S2[i]!='\o')
+       while(S2[i]!='\0')
            {
              S3[j]=S2[i];
              i++;
              j++;
            }
-       S3[j]= '\o';
+       S3[j]= '\0';
        printf("concatenated string is:");
     }
