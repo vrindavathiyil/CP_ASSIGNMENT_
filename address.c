@@ -2,6 +2,7 @@
 person using a variable of the union*/
 
 
+
 #include <stdio.h>
 #include <string.h>
 #define C_SIZE 50
