@@ -53,15 +53,15 @@ int add_mat(int a[][100],int b[][100],int row,int col)
     return 0;
 }
 
-int mul_mat(int a[][100],int b[][100],int r1,int c1,int r2,int c2)
+int mul_mat(int a[][100],int b[][100],int row1,int col1,int row2,int col2)
 {
 	int pro[100][100],i,j,k,sum;
-	for(i=0;i<r1;i++)
+	for(i=0;i<row1;i++)
     {
-     for(j=0;j<c2;j++) 
+     for(j=0;j<col2;j++) 
       {
        sum=0;
-       for(k=0;k<c1;k++)
+       for(k=0;k<col1;k++)
         {
          sum+=a[i][k]*b[k][j];
          pro[i][j]=sum;
@@ -69,11 +69,11 @@ int mul_mat(int a[][100],int b[][100],int r1,int c1,int r2,int c2)
       }
     }
     printf("Matrix 1:\n");
-    disp_mat(a,r1,c1);
+    disp_mat(a,row1,col1);
     printf("Matrix 2:\n");
-    disp_mat(b,r2,c2);
+    disp_mat(b,row2,col2);
     printf("The product matrix is\n");
-    disp_mat(pro,r1,c2);
+    disp_mat(pro,row1,col2);
     return 0;
 }
 
@@ -95,16 +95,16 @@ void mat_trans(int a[][100],int row,int col)
 int main()
 {
  int mat1[100][100],mat2[100][100];
- int r1,c1,r2,c2;
+ int row1,col1,row2,col2;
  int ch;
  printf("Enter rows and cols of first matrix\n");
- scanf("%d%d",&r1,&c1);
+ scanf("%d%d",&row1,&col1);
  printf("Enter rows and cols of second matrix\n");
- scanf("%d%d",&r2,&c2);
+ scanf("%d%d",&row2,&col2);
  printf("Enter the elements first matrix\n");
- getmat(mat1,r1,c1);
+ getmat(mat1,row1,col1);
  printf("\nEnter the elements second matrix\n");
- getmat(mat2,r2,c2);
+ getmat(mat2,row2,col2);
  while(1)
   {
    printf("Select operation from menu\n");
@@ -113,20 +113,20 @@ int main()
    switch(ch)
     {
      case 1:
-         if(r1==r2&&c1==c2)
-		   add_mat(mat1,mat2,r1,r1);
+         if(row1==row2&&col1==col2)
+		   add_mat(mat1,mat2,row1,row1);
 		 else
 		   printf("!!incompatable...can't add!!\n");  
 		   break;
      case 2:
-        if(c1==r2)
-		   mul_mat(mat1,mat2,r1,c1,r2,c2);
+        if(col1==row2)
+		   mul_mat(mat1,mat2,row1,col1,row2,col2);
 		 else
 		   printf("!!incompatable...can't multiply!!\n");  
 		   break;
      case 3:
-         mat_trans(mat1,r1,c1);
-         mat_trans(mat2,r2,c2);
+         mat_trans(mat1,row1,col1);
+         mat_trans(mat2,row2,col2);
          break;
      case 4:
          exit(0);
@@ -135,4 +135,4 @@ int main()
     }
   } 
 }
-  
+	
