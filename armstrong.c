@@ -1,8 +1,7 @@
 /*Read a Natural Number and check whether the number is Armstrong or not*/
 
 
-#include 
-<stdio.h>
+#include <stdio.h>
 int main()
 {
     int num, originalNum, remainder, result = 0;
