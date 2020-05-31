@@ -3,21 +3,29 @@
 
 
 #include<stdio.h>
+#include<string.h>
+
 void main()
-     {
-        char str[30];
-        int i,vowels=0,consonants=0,spaces=0;
-        printf("Enter the string with $\n");
-        gets(str);
-        for(i=0;str[i]!='/0';i++)
-            {
-               if(str[i]==' ')
-                  spaces++;
-               else if(str[i]=='a'|| str[i]=='e'|| str[i]=='i'|| str[i]=='o'|| str[i]=='u')
-                  vowels++;
-               else
-                  consonants++;
-            }
-        printf("vowels=%d consonants=%d spaces=%d,vowels,consonants,spaces");
-      }      
-       
+	{
+		int vow_count=0, const_count=0, sp_count=0;
+		char str[50];
+
+		printf("\n Enter a string: ");
+		gets(str);
+
+		for(int i=0; i<strlen(str); i++)
+			{
+				if(str[i] == ' ')
+					sp_count++;
+				
+				else if (str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u' || str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+					vow_count++;
+				
+				else if ((str[i] > 'a' && str[i] < 'z') || (str[i] > 'A' && str[i] < 'Z'))
+					const_count++;
+			}
+		
+		printf("\n Counts are as follows:- \n Vowels: %d \n Consonants: %d \n Whitespaces: %d \n", vow_count, const_count, sp_count);
+
+	}
+	
