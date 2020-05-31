@@ -1,6 +1,7 @@
 /* Find the factorial of a given Natural Number n using recursive and non recursive functions*/
 
 
+
 #include <stdio.h>
 long int factnr(int n)
  { 
