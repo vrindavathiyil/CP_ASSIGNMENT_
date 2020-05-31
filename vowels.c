@@ -1,5 +1,7 @@
 /* to count the number of vowels,consonants and spaces*/
 
+
+
 #include<stdio.h>
 void main()
      {
@@ -11,10 +13,11 @@ void main()
             {
                if(str[i]==' ')
                   spaces++;
-               else if(str[i]=='a'|| str[i]=='e'|| str[i]=='i'|| str[i]=='o'|| str[i]=='u'||)
+               else if(str[i]=='a'|| str[i]=='e'|| str[i]=='i'|| str[i]=='o'|| str[i]=='u')
                   vowels++;
                else
                   consonants++;
-        printf("vowels=%d consonants=%d spaces=%d,vowels,consonants,spaces);
-      }        
+            }
+        printf("vowels=%d consonants=%d spaces=%d,vowels,consonants,spaces");
+      }      
        
