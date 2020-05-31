@@ -1,3 +1,5 @@
+/*read n integers,store them in an array  and sort the elements in the array using bubble sort algorithm*/
+
 #include<stdio.h>
 int main()
       {
