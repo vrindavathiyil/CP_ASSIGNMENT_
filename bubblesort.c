@@ -34,6 +34,6 @@ int main()
                printf("%d\t",array[i]);
                
              }
-         return0;
+         
           
       }      
